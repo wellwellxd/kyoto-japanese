@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#214b40">
+  <meta name="description" content="把前往京都的路，變成日語練習。從零到 N4 核心，80 課中日雙語聽說、免看螢幕音檔與每日 10 分鐘文字練習。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>京都日和 · 聽見你的下一趟旅行</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./content.js"></script>
+  <script defer src="./extras.js"></script>
+  <script defer src="./audio.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <aside class="sidebar" aria-label="主要導覽">
+    <a class="brand" href="#home"><span class="brand-seal">京</span><span>京都日和<small>KYOTO BIYORI</small></span></a>
+    <div class="side-label">我的日語旅程</div>
+    <nav id="desktop-nav"></nav>
+    <div class="side-progress" id="side-progress"></div>
+    <div class="side-foot"><span>一日一歩、京都へ。</span><button data-action="nav" data-page="settings">使用說明與設定 <span aria-hidden="true">↗</span></button></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><a href="#home" class="mobile-brand">京都日和<span>KYOTO BIYORI</span></a><div class="top-context">日本語のある毎日 <span class="dot"></span> 從零走向 N4</div><div class="top-right"><span id="network-label">離線可用設計</span><button class="round-button" data-action="nav" data-page="settings" aria-label="設定與使用說明" title="設定與使用說明">⚙</button></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="page-footer"><span>京都日和 <i>／</i> 每天一點，旅行更近一點。</span><a href="#settings">課程範圍・使用說明</a></footer>
+  </div>
+  <section id="player" class="player" aria-label="音訊播放器" hidden>
+    <button class="player-art" data-action="drive" aria-label="開啟專注播放器">聴</button><div class="player-info"><strong id="player-title">準備練習</strong><span id="player-subtitle">京都日和</span></div>
+    <div class="player-controls"><button data-action="previous" aria-label="上一課">⏮</button><button class="play-control" data-action="toggle" aria-label="播放" id="play-toggle">▶</button><button data-action="next" aria-label="下一課">⏭</button></div>
+    <div class="player-timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="播放進度"><span id="duration">0:00</span></div>
+    <button class="player-speed" data-action="cycle-speed" id="speed-control" aria-label="切換播放速度">1×</button><button class="player-expand" data-action="drive" aria-label="放大播放器">↗</button>
+  </section>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="主要導覽"></nav>
+  <dialog id="drive-dialog" class="drive-dialog" aria-labelledby="drive-title"><div id="drive-content"></div></dialog>
+  <dialog id="lesson-dialog" class="lesson-dialog" aria-labelledby="lesson-title"><div id="lesson-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <audio id="audio" preload="metadata" playsinline></audio>
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+  <script>if(!('noModule' in HTMLScriptElement.prototype)){document.getElementById('main').textContent='請使用較新的手機瀏覽器開啟本網站。';}</script>
+</body>
+</html>
